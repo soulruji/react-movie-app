@@ -17,6 +17,7 @@
     flex-flow:  row wrap;
     align-items: flex-start;
     justify-content: flex-start;
+    text-decoration: none;
 }
 
 .movie_id { display: none;}
@@ -41,6 +42,7 @@
     text-overflow: ellipsis;
     white-space: normal;
     display: block;
+    text-decoration: none;
 }
 .movie__opendate,
 .movie_audicount { 

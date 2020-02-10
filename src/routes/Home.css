@@ -1,0 +1,10 @@
+.boxoffice {
+
+}
+.boxoffice__title { 
+  margin-bottom: 20px;
+}
+.movieLists {
+  box-sizing: border-box;
+  overflow: hidden;
+}
