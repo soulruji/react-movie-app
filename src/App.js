@@ -13,7 +13,7 @@ class App extends React.Component {
       data: { 
         boxOfficeResult: { dailyBoxOfficeList }
       }
-    } = await axios.get("http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=1943b60fca7f60c201b5702f56747fc8&targetDt=20200201");
+    } = await axios.get("https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=1943b60fca7f60c201b5702f56747fc8&targetDt=20200201");
     // console.log(movies.data.dailyBoxOfficeListResult.dailyBoxOfficeList)
     this.setState( { dailyBoxOfficeList, isLoading: false} )
   }
