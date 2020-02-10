@@ -30,6 +30,7 @@ class App extends React.Component {
           <span className="loader__text">loading</span>
         </div>
        ) : ( 
+        <h1 className="title">박스오피스</h1>
         <div className="movieLists">
             {dailyBoxOfficeList.map(movie => (
               <Movie
