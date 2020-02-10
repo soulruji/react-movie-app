@@ -29,20 +29,22 @@ class App extends React.Component {
         <div className="loader">
           <span className="loader__text">loading</span>
         </div>
-       ) : ( 
-        <h1 className="title">박스오피스</h1>
-        <div className="movieLists">
-            {dailyBoxOfficeList.map(movie => (
-              <Movie
-                key         = {movie.movieCd}
-                rank        = {movie.rank}
-                id          = {movie.movieCd}
-                title       = {movie.movieNm}
-                openDate    = {movie.openDt}
-                audiCount   = {movie.audiAcc}
-              />
-            ))}
-        </div>
+       ) : (
+         <div className="boxoffice">
+          <h1 className="boxoffice__title">박스오피스 10</h1>
+          <div className="movieLists">
+              {dailyBoxOfficeList.map(movie => (
+                <Movie
+                  key         = {movie.movieCd}
+                  rank        = {movie.rank}
+                  id          = {movie.movieCd}
+                  title       = {movie.movieNm}
+                  openDate    = {movie.openDt}
+                  audiCount   = {movie.audiAcc}
+                />
+              ))}
+          </div>
+        </div> 
       )}
       </section>;
   }

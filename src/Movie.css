@@ -6,6 +6,9 @@
     line-height: 160%;
     color: #909090;
     margin-bottom: 10px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
     
     overflow: hidden;
     position: relative;

@@ -1,29 +1,36 @@
-.container {
+* {
   padding: 0;
   margin: 0;
-  background-color: #f5f5f5;
+  box-sizing: border-box;
 }
 
 .loader {
-  display: block;
+  display: flex;
   position: relative;
   width: 100%;
-  min-height: 100%;
-  background: #000;
+  height: 100vh;
+  background: #fff;
+  align-items: center;
+  justify-content: center;
 }
 .loader__text {
+  text-align: center;
+  flex: 1 auto;
+  width: auto;
   font-size: 18px;
-  border: 1px solid red;
-  position: absolute;
-  left: 50%;
-  top: 50%;
+  color:pink;
 }
 .container {
   width: 100%;
+  background: #f2f2f2;
+}
+.boxoffice {
+  padding: 20px;
+}
+.boxoffice__title { 
+  margin-bottom: 20px;
 }
 .movieLists {
-  padding: 20px;
-  border: 1px solid red;
   box-sizing: border-box;
   overflow: hidden;
 }
