@@ -1,62 +1,51 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
+import Movie from './Movie';
+import "./App.css";
 
-const foodLike = [
-  {
-    id: 1,
-    name: "kimchi",
-    image: "http://recipe1.ezmember.co.kr/cache/recipe/2016/10/10/e1d38d22a01a5f11619e141e089f66cb1.jpg",
-    rating: 5
-  },
-  {
-    id: 2,
-    name: "밀페유",
-    image: "http://t1.daumcdn.net/liveboard/dailylife/6b76af6db2de49b3a7fd98db2f3e25e4.JPG",
-    rating: 4.5
-  },
-  {
-    id: 3,
-    name: "김밥",
-    image: "http://t1.daumcdn.net/liveboard/dailylife/75fa2dd2ea934d009052fb8867b6bb8c.jpg",
-    rating: 3
-  },
-  {
-    id: 4,
-    name: "샐러드",
-    image: "https://www.amwayon.co.kr/wp-content/uploads/2016/12/703.jpg",
-    rating: 3.2
-  },
-  {
-    id: 5,
-    name: "떡볶이",
-    image: "http://img.allurekorea.com/allure/2018/05/style_5b0e356574c4d.jpg",
-    rating: 2.5
-  },
-];
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    dailyBoxOfficeList: []
+  };
+  getMovies = async () => {
+    const { 
+      data: { 
+        boxOfficeResult: { dailyBoxOfficeList }
+      }
+    } = await axios.get("http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=1943b60fca7f60c201b5702f56747fc8&targetDt=20200201");
+    // console.log(movies.data.dailyBoxOfficeListResult.dailyBoxOfficeList)
+    this.setState( { dailyBoxOfficeList, isLoading: false} )
+  }
 
+  componentDidMount() {
+    this.getMovies();
+  }
 
-
-function Food({name, picture, rating}) {
-  return (
-    <div>
-      <h1>I like {name}</h1>
-      <span>{rating} / 5.0</span>
-      <img src={picture} alt={name}/>
-    </div>
-  );
+  render(){
+    const { isLoading, dailyBoxOfficeList } = this.state;
+    return <section className="container"> 
+      {isLoading ? (
+        <div className="loader">
+          <span className="loader__text">loading</span>
+        </div>
+       ) : ( 
+        <div className="movieLists">
+            {dailyBoxOfficeList.map(movie => (
+              <Movie
+                key         = {movie.movieCd}
+                rank        = {movie.rank}
+                id          = {movie.movieCd}
+                title       = {movie.movieNm}
+                openDate    = {movie.openDt}
+                audiCount   = {movie.audiAcc}
+              />
+            ))}
+        </div>
+      )}
+      </section>;
+  }
 }
 
-function renderFood(dish){
-  console.log(dish);
-  return <Food key={dish.id} name={dish.name} picture={dish.image} rating={dish.rating}/>
-}
-
-function App() {
-  return (
-    <div className="App">
-      {foodLike.map(renderFood)}
-    </div>
-  );
-}
 
 export default App;

@@ -1,0 +1,49 @@
+.movie { 
+    width: 100%;
+    padding: 0; 
+    box-sizing: border-box;
+    font-size: 12px;
+    line-height: 160%;
+    color: #909090;
+    margin-bottom: 10px;
+    
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow:  row wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.movie_id { display: none;}
+.movie_rank { flex: 1 1 1; 
+    width: 20px; 
+    height: 20px; 
+    margin-right: 8px;
+    background: #000; 
+    color: #fff; 
+    border-radius: 20px;
+    text-align: center;
+}
+.movie_data { 
+    flex: 1 auto;
+}
+.movie__title { 
+    font-size: 18px; 
+    width: 200px;
+    color: #000; 
+    overflow: hidden; 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: block;
+}
+.movie__opendate,
+.movie_audicount { 
+    font-size: 14px; 
+    padding: 0; 
+    margin: 0;
+    display: inline-block; 
+    margin-right: 5px;;
+}
